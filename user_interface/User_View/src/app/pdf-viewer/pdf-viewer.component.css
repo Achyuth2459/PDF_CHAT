@@ -1,0 +1,17 @@
+.back
+{
+  margin-left: 30%;
+  background-color: rgb(237, 194, 203);
+  width: 50%;
+  height: 50%;
+}
+label{
+  color: #3d1bd4;
+}
+button{
+  margin-left: -10%;
+}
+.doc{
+  margin-left: 20%;
+}
+

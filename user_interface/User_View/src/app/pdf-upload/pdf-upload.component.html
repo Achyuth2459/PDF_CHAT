@@ -1,0 +1,17 @@
+
+
+<mat-card class="back">
+  <mat-card-header style="background-color: rgb(198, 204, 240);">
+    <label> UPLOAD DOCUMENTS</label>
+  </mat-card-header><br><br>
+  <mat-card-content>
+    <form  (ngSubmit)="uploadPDF()" method="POST" enctype="multipart/form-data">
+    <label >Choose a File To Upload</label><br><br><br>
+
+    <input   type="file" name ="pdfFile" (change)="onFileSelected($event)" />
+
+    <button mat-button color="accent"  type="submit"><mat-icon>attachment</mat-icon>Upload PDF</button>
+  </form>
+
+</mat-card-content>
+</mat-card>

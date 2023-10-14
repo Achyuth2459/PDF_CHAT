@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<mat-card class="back">
+  <mat-card-header style="background-color: rgb(198, 204, 240);">
+    <label>AVAILABLE  DOCUMENTS</label>
+  </mat-card-header>
+  <button mat-button color="primary"  (click)="viewPDF()"><mat-icon>collections</mat-icon>Show Pdfs</button>
+  <mat-card-content>
+    <div    class ="doc" *ngFor="let item of pdfFiles; let i = index">
+
+      <button mat-button color="primary" ><a [href]= "mainUrl + item.pdf_file">{{i+1}}
+        <span> --- </span> {{ item.pdf_file }}</a></button><br>
+
+    </div>
+</mat-card-content>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+
+

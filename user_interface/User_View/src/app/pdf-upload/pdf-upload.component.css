@@ -1,0 +1,14 @@
+.back
+{
+  margin-left: 30%;
+  background-color: rgb(172, 238, 193);
+  width: 50%;
+  height: 50%;
+}
+label{
+  color: #3d1bd4;
+}
+input{
+  color: rgb(220, 14, 55);
+  box-sizing: border-box;
+}

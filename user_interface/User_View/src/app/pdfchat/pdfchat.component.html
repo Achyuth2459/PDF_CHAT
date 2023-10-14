@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<mat-card class="back">
+  <mat-card-header style="background-color: rgb(198, 204, 240);">
+    <label>CHAT WITH  PDF</label>
+  </mat-card-header>
+  <mat-card-content>
+    <div    class ="doc" *ngFor = "let item of pdfFiles; let i = index">
+
+      <button mat-button color="primary" ><a [href]= "mainUrl + item.pdf_file">{{i+1}}
+        <span> --- </span> {{ item.pdf_file }}</a></button><br>
+        <button mat-button color="primary"  (click)="gettext(i)">Chat</button>
+        <p>  {{text}}</p>
+    </div>
+</mat-card-content>
+</mat-card>
+
+
