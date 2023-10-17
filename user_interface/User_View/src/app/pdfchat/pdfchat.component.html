@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <mat-card class="back">
-  <mat-card-header style="background-color: rgb(198, 204, 240);">
-    <label>CHAT WITH  PDF</label>
-  </mat-card-header>
-  <mat-card-content>
-    <div    class ="doc" *ngFor = "let item of pdfFiles; let i = index">
+<div class="grid-container">
+  <div class="for">
+  <div  class="grid-item"  *ngFor = "let item of pdfFiles; let i = index" >
+    <mat-card class="inside">
+      <h1>{{ (item.pdf_file).slice(7,-12) }}</h1><br>
+     <button mat-button color="primary"  (click)="createVector(i) "><h1><mat-icon> chat</mat-icon></h1></button>
+    </mat-card>
+    </div><br><br>
+  </div>
 
-      <button mat-button color="primary" ><a [href]= "mainUrl + item.pdf_file">{{i+1}}
-        <span> --- </span> {{ item.pdf_file }}</a></button><br>
-        <button mat-button color="primary"  (click)="gettext(i)">Chat</button>
-        <p>  {{text}}</p>
+  <div class="grid-item"  >
+    <h1>Ask the questions related to pdf you uploaded </h1>
+    <div  *ngFor="let messg of messages"  class ="message-grid">
+      <div class="ques">
+      {{ messg.question }}<br><br>
+      </div>
+      <div class="ans">
+        {{ messg.answer}}
+      </div>
+  </div><br><br>
+    <div [hidden]="isDivHidden" >
+      <div class="form-container"  >
+        <label for="myInput" class="form-label">Type a Query related to pdf <b>{{num+1}}</b> </label>
+        <input type="text" id="myInput" class="text-input" (keyup.enter)="get_answer()" placeholder="Enter your query">
+        <button mat-button color="primary"  (click)="get_answer()"><h1><mat-icon>send</mat-icon></h1></button>
+
     </div>
-</mat-card-content>
+      <div style="text-align:left">
+        <h3 class="result">{{text}}</h3>
+        <button mat-button color="primary"  (click)="next_question()"><h1><mat-icon>skip_next</mat-icon></h1></button>
+      </div>
+  </div>
+
+</div>
+
+  </div>
+
 </mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <iframe class="frame" src="mainUrl + item.pdf_file" name="iframe_a" height="50%"
+    width="50%" title="Iframe Example"></iframe> -->
 
 

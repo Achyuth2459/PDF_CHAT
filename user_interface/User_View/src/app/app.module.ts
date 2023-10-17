@@ -17,6 +17,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {MatIconModule} from'@angular/material/icon';
 import { SafePipe } from './safe.pipe'
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 
 
 @NgModule({
@@ -29,7 +32,7 @@ import { SafePipe } from './safe.pipe'
   ],
   // schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
-  BrowserModule,
+    BrowserModule,
     AppRoutingModule,
     PdfViewerModule,
     FormsModule,
@@ -41,6 +44,9 @@ import { SafePipe } from './safe.pipe'
     MatListModule,
     MatToolbarModule,
     MatIconModule,
+    MatGridListModule,
+    MatSidenavModule,
+
   ],
   providers: [UploadService],
   bootstrap: [AppComponent],

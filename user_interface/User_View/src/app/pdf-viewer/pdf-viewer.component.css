@@ -3,15 +3,19 @@
   margin-left: 30%;
   background-color: rgb(237, 194, 203);
   width: 50%;
-  height: 50%;
+  height: 90%;
+  font-family: cursive;
 }
 label{
   color: #3d1bd4;
+  font-family: cursive;
 }
 button{
   margin-left: -10%;
+  font-family: cursive;
 }
 .doc{
   margin-left: 20%;
+  font-family: cursive;
 }
 

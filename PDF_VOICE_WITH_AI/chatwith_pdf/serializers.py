@@ -10,3 +10,4 @@ class PDFSerializer(serializers.ModelSerializer):
     class Meta:
         model = PDF
         fields = '__all__'
+    

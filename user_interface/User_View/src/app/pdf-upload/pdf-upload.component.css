@@ -1,14 +1,17 @@
 .back
 {
   margin-left: 30%;
-  background-color: rgb(172, 238, 193);
+  background-color: rgb(151, 235, 145);
   width: 50%;
   height: 50%;
+  font-family: cursive;
 }
 label{
   color: #3d1bd4;
+  font-family: cursive;
 }
 input{
   color: rgb(220, 14, 55);
   box-sizing: border-box;
+  font-family: cursive;
 }

@@ -15,20 +15,18 @@ export class PdfViewerComponent {
   pdfFiles: any;
   mainUrl:string ="http://127.0.0.1:8000"
 
-  
+
 
   constructor(private service: UploadService) {}
 
-
-  viewPDF() {
-
-      this.service.getPdf().subscribe((data:any)=>{
+  ngOnInit(): void {
+    this.service.getPdf().subscribe((data:any)=>{
       this.pdfFiles=data
+  }
+    )
 
-      })
-    }
 
 
 }
-
+}
 

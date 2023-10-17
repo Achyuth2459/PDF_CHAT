@@ -18,7 +18,21 @@ export class UploadService {
     return this.http.post(this.apiUrl+'/pdfupload/',val);
   }
 
-  getChat(val:number){
-    return this.http.get<any>(this.apiUrl+ '/pdfchat/',{params: {"id": val}} );
+  getChat(val:number,query:string){
+    return this.http.get<any>(this.apiUrl+ '/pdfchat/',
+    {params: {"id": val, "query": query}});
 }
+
+ store_message(val:number,question:string,answer:string)
+ {
+   return this.http.get<any>(this.apiUrl+ '/storeResults/',
+    {params: {"id": val, "question": question, "answer":answer}});
+
+ }
+
+ get_message(val:number){
+  return this.http.get<any>(this.apiUrl+ '/sendResults/',
+  {params: {"id": val}});
+}
+
 }

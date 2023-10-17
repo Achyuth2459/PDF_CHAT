@@ -1,7 +1,14 @@
 .all
 {
-  padding-top: 4%;
-  margin: 5%;
+  padding-top: 2%;
   align-items: center;
-  margin-left: 30%;
+  margin-left: 35%;
+}
+.welcome{
+  width: 100%;
+  height: 7%;
+  background-color: rgb(69, 73, 71);
+  text-align: center;
+  color: rgb(38, 245, 104);
+
 }

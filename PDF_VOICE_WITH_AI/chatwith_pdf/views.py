@@ -1,11 +1,10 @@
 
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render, redirect
-from .models import PDF
-from .serializers import PDFSerializer
-from rest_framework.parsers import JSONParser
+from django.http import  JsonResponse
+from .models import PDF, Message
+from .serializers import MessageSerializer, PDFSerializer
 from django.views.decorators.csrf import csrf_exempt
-import fitz
+from .embeddings import vector_embeddings
+
 
 
 
@@ -25,21 +24,42 @@ def upload_pdf(request):
          return JsonResponse("Failed" , safe=False)
     
 
+
 @csrf_exempt
 def chat_with_pdf(request):
     if request.method=='GET':
         id =request.GET.get('id')
+        query=request.GET.get('query')
+        response= vector_embeddings(id,query)
+        return JsonResponse(response,safe=False)
+        
+def store_results(request):
+     if request.method=='GET':
+        id =request.GET.get('id')
+        question =request.GET.get('question')
+        answer = request.GET.get('answer')
         pdfs = PDF.objects.all()
-        pdf_serializer = PDFSerializer(pdfs, many=True)
-        pdfs=pdf_serializer.data
-        text = ""
-        doc = fitz.open('.'+pdfs[int(id)]["pdf_file"])
+        message=Message(pdf_files = pdfs[int(id)],
+                        question = question,answer = answer)
+        message.save()
+        return JsonResponse("", safe=False)
+
+def send_results(request):
+    if request.method=='GET':
+      id =request.GET.get('id')
+      pdfs = PDF.objects.all()
+      pdf=pdfs[int(id)]
+      messages=Message.objects.filter(pdf_files=pdf)
+      message_serializer = MessageSerializer(messages, many=True)
+      return JsonResponse(message_serializer.data, safe=False)
     
-        for page_num in range(len(doc)):
-           page = doc.load_page(page_num)
-           text += page.get_text()
+         
+        
+
+
+
+
     
-    return JsonResponse(text,safe=False)
 
 
   
